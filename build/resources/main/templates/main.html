@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음성 파일 업로드</title>
+</head>
+<body>
+<h2>음성 파일 업로드</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="audioFile">음성 파일 선택:</label>
+    <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
+    <br>
+    <button type="submit">파일 업로드</button>
+</form>
+</body>
+</html>
