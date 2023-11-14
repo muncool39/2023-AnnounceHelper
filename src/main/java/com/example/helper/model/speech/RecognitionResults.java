@@ -1,9 +1,9 @@
-package com.example.helper.model;
+package com.example.helper.model.speech;
 
 import lombok.Data;
 
 @Data
-public class AudioAnalysisResult {
+public class RecognitionResults {
     private int result;
     private String return_type;
     private ReturnObject return_object;
