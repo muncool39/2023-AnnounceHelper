@@ -1,0 +1,21 @@
+
+#wrap {
+    height: auto;
+    min-height: 630px;
+    padding-bottom: 40px;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+
+    height: 40px;
+    position: relative;
+    transform: translateY(0%);
+
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #98DFFF;
+}

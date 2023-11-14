@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>음성 파일 업로드</title>
+    <div th:replace="fragments/head::head"></div>
+    <title>AH 발표 도우미</title>
 </head>
 <body>
-<h2>음성 파일 업로드</h2>
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <label for="audioFile">음성 파일 선택:</label>
-    <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
-    <br>
-    <button type="submit">파일 업로드</button>
-</form>
+<div id="wrap">
+<div th:replace="fragments/header::header"></div>
+<div class="buttonFunction">
+    <button class="text" th:onclick="|location.href='@{text}'|">
+        발표 대본 분석하기
+        <br/><br/>
+        대본을 올려주세요!<br/>발표 대본을 분석합니다.
+    </button>
+    <button class="speech" th:onclick="|location.href='@{speech}'|">
+        발표 음성 분석하기
+        <br/><br/>
+        녹음을 올려주세요!<br/>발표 음성을 분석합니다.
+    </button>
+</div>
+
+</div>
+<div th:replace="fragments/footer::footer"></div>
 </body>
 </html>
