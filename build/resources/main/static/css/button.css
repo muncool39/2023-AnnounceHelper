@@ -54,7 +54,7 @@ button {
 }
 
 
-button.text {
+button.script {
     --button-hover-bg-color: #0A6ECD;
     border: 3em;
     margin: 3em;

@@ -4,7 +4,7 @@ package com.example.helper.controller;
 import com.example.helper.controller.response.AudioAnalysisResponse;
 import com.example.helper.service.speech.EvaluationService;
 import com.example.helper.service.speech.RecognitionService;
-import com.example.helper.service.speech.FileService;
+import com.example.helper.service.FileService;
 import java.nio.file.Path;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -27,8 +27,8 @@ public class SpeechController {
                              @RequestParam("language") String language,
                              RedirectAttributes redirectAttributes,
                              Model model){
-        fileService.uploadAudioFile(file);
-        Path path = fileService.getFilePath(file);
+        //Path path = fileService.getFilePath(file);
+        Path path = fileService.uploadAudioFile(file);
         redirectAttributes.addFlashAttribute("message", "파일 업로드에 성공했습니다!");
         redirectAttributes.addFlashAttribute("filePath",path);
         redirectAttributes.addFlashAttribute("language",language);
