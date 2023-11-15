@@ -24,7 +24,7 @@ public class EvaluationService {
     private static final String OPEN_API_URL_ENG = "http://aiopen.etri.re.kr:8000/WiseASR/Pronunciation";
     private static final String OPEN_API_URL_KOR = "http://aiopen.etri.re.kr:8000/WiseASR/PronunciationKor";
 
-    public String getPronunciationAnalysisResults(Path audioPath, String language, String script) {
+    public Double getPronunciationAnalysisScore(Path audioPath, String language, String script) {
 
         String audioContents = null;
         Gson gson = new Gson();
@@ -46,6 +46,7 @@ public class EvaluationService {
         Integer responseCode = null;
         String responBody = null;
         String evaluationScore = null;
+        EvaluationResults result = null;
         try {
             url = getOpenApiUrl(language);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -65,17 +66,18 @@ public class EvaluationService {
             int byteRead = is.read(buffer);
             responBody = new String(buffer);
 
-            EvaluationResults result = gson.fromJson(responBody, EvaluationResults.class);
-            evaluationScore = result.getReturn_object().getScore();
+            result = gson.fromJson(responBody, EvaluationResults.class);
+
+            /*evaluationScore = result.getReturn_object().getScore();
             System.out.println("[responseCode] " + responseCode);
             System.out.println("[responBody]");
-            System.out.println(responBody);
+            System.out.println(responBody);*/
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return evaluationScore;
+        return Double.parseDouble(result.getReturn_object().getScore());
     }
 
     private URL getOpenApiUrl(String language) throws MalformedURLException {
