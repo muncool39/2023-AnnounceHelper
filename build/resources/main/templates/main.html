@@ -5,22 +5,41 @@
     <title>AH 발표 도우미</title>
 </head>
 <body>
-<div id="wrap">
-<div th:replace="fragments/header::header"></div>
+<div class="content">
+<!--
+<div th:replace="fragments/header::header"></div> -->
 <div class="buttonFunction">
     <button class="script" th:onclick="|location.href='@{script}'|">
         발표 어휘 분석하기
         <br/><br/>
-        대본을 올려주세요!<br/>발표 대본을 분석합니다.
+        대본을 올려주세요!<br/>발표 어휘를 분석합니다.
     </button>
     <button class="speech" th:onclick="|location.href='@{speech}'|">
-        발표 음성 분석하기
+        발표 발음 분석하기
         <br/><br/>
-        녹음을 올려주세요!<br/>발표 음성을 분석합니다.
+        음성을 올려주세요!<br/>발표 발음을 분석합니다.
     </button>
 </div>
 
 </div>
+<!--
 <div th:replace="fragments/footer::footer"></div>
+-->
+<style>
+    div.buttonFunction {
+        position: relative;
+        animation: fadeInLeft 1s;
+    }
+    @keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            transform: translate3d(-100%, 0, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+    }
+</style>
 </body>
 </html>

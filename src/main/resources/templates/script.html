@@ -9,13 +9,14 @@
 <body>
 <div id="wrap">
     <div th:replace="fragments/header::header"></div>
+    <div class="inner">
     <h2>발표 대본 분석하기</h2>
     <!-- Display the uploaded file path -->
     <form action="/script/text" method="post" id="uploadText" style="display: block;">
         <label> 발표 대본을 입력하세요 <br/>
-            <textarea name="textContent" rows="4" cols="50"></textarea>
+            <textarea name="textContent" rows="10" cols="50"></textarea>
         </label>
-        <br>
+        <br><br/>
         <button type="button" onclick="showFileForm()">파일로 올리기</button>
         <button type="submit">대본 생성하기</button>
     </form>
@@ -24,7 +25,7 @@
         <label for="file"> 발표 대본을 선택하세요:
             <input type="file" name="file" id="file" required>
         </label>
-        <br>
+        <br><br/>
         <button type="button" onclick="showTextForm()">여기서 작성하기</button>
         <button type="submit">업로드하기</button>
     </form>
@@ -32,7 +33,7 @@
     <p th:if="${filePath}">해당 파일을 분석하시겠습니까?
     <form action="/script/analysis" method="post" id="analyzeForm" th:if="${filePath != null}" style="display: none;">
         <input type="hidden" th:name="filePath" th:value="${filePath}">
-        <button type="submit">분석하기</button>
+        <button type="submit" class="analysis">분석하기</button>
         <button type="button" th:if="${result}" th:onclick="|location.href='@{script}'|">다시 고르기</button>
     </form>
     </p>
@@ -43,10 +44,9 @@
     <button type="button" th:if="${result}" th:onclick="|location.href='@{script}'|">다시하기</button>
     </p>
 
-
+    </div>
 </div>
 <div th:replace="fragments/footer::footer"></div>
-
 <script>
     function showTextForm(){
         document.getElementById('uploadText').style.display = 'block';
