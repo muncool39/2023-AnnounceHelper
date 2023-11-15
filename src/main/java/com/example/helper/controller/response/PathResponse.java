@@ -1,6 +1,7 @@
 package com.example.helper.controller.response;
 
 
+import java.nio.file.Path;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,8 +9,7 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-public class AudioAnalysisResponse {
-    private String originalScript;
-    private String speechRecognitionResult;
-    private Double pronunciationEvaluationScore;
+public class PathResponse {
+    Path audioPath;
+    Path textPath;
 }
