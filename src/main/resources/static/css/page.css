@@ -1,8 +1,46 @@
+a {
+    color: black;
+    text-decoration-line: none;
+}
+a:hover {
+    color : #37B7B7;
+    transition: 0.5s;
+}
+header{
+ position: sticky;
+    top:0;
+}
+
+div.content {
+    display: grid;
+    height: auto;
+    min-height: 630px;
+    place-items: center;
+}
+
+div.index {
+    display: inline-block;
+    padding: 3rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+}
+
+div.speech {
+    //display: in;
+}
+
+div.inner {
+    display: inline-block;
+    padding: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 #wrap {
     height: auto;
-    min-height: 630px;
+    min-height: 620px;
     padding-bottom: 40px;
+    justify-content: center;
 }
 
 footer {
@@ -17,5 +55,6 @@ footer {
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: #98DFFF;
+    //background-color: #98DFFF;
 }
+
