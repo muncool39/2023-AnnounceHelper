@@ -20,7 +20,7 @@ public class PageController {
     }
     @RequestMapping("/script")
     public String testPage(){
-        return "script";
+        return "/script";
     }
 
 

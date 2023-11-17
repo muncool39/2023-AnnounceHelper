@@ -32,9 +32,14 @@
 
 <p th:if="${result}">
     <p th:if="${message}" th:text="${message}" id="firstMessage"></p>
-    <p th:if="${result}" th:text="'대본 텍스트 : '+${result.originalScript}"></p>
-    <p th:if="${result}" th:text="'음성을 텍스트로 변환한 결과 : '+${result.speechRecognitionResult}"></p>
-    <p th:if="${result}" th:text="'발음 평가 결과 : '+${result.pronunciationEvaluationScore}+' /5점'"></p>
+    <div id="speechBox">
+        <p th:if="${result}"><strong>[대본 텍스트]</strong></p>
+    <p th:if="${result}" th:text="${result.originalScript}"></p>
+        <p th:if="${result}"><strong>[음성을 텍스트로 변환한 결과]</strong></p>
+    <p th:if="${result}" th:text="${result.speechRecognitionResult}"></p>
+    </div><strong>
+    <p th:if="${result}" th:text="'[발음 평가 점수] '+${result.pronunciationEvaluationScore}+' /5점'"></p>
+    </strong>
     <button type="button" th:if="${result}" th:onclick="|location.href='@{speech}'|">다시하기</button>
 </p>
 
@@ -48,7 +53,7 @@
         <input type="hidden" th:name="textPath" th:value="${filePath.textPath}">
         <input type="hidden" th:name="language" th:value="${language}">
         <button type="submit" class="analysis">분석하기</button>
-        <button type="button" th:if="${filePath != null}" th:onclick="|location.href='@{speech}'|">다시하기</button>
+        <button type="button" th:if="${filePath != null}" th:onclick="|location.href='@{speech}'|">다시 고르기</button>
     </form>
 
     </p>

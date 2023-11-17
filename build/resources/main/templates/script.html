@@ -39,8 +39,10 @@
     </p>
 
     <p th:if="${result}"> 분석에 성공했습니다!
-    <p th:if="${result}" th:text="'분석 대본 : '+${result.script}">
-    <p th:if="${result}" th:text="'분석 결과 : '+${result.result}"></p>
+        <p th:if="${result}">[대본 텍스트]</p>
+        <p th:if="${result}" th:text="${result.script}"></p>
+        <p th:if="${result}">[분석 결과]</p>
+        <p th:if="${result}" th:text="${result.result}"></p>
     <button type="button" th:if="${result}" th:onclick="|location.href='@{script}'|">다시하기</button>
     </p>
 
